@@ -25,4 +25,10 @@ The app is built using a handful of different web components. The major ones are
 * [Bower](http://bower.io/) - a package manager for front-end browser components.
 
 ##How to Run
-First, clone the repository locally. 
+Make sure that Node.js and Mongo DB are installed. Use the default settings for Mongo DB and you should be fine. The code will automatically create the database if it doesn't already exist.
+
+1. First, [clone the git repository locally](https://help.github.com/articles/fetching-a-remote/).
+2. Using the command line, navigate to the `source` directory.
+3. Run `npm install -l` from the command line to install all needed Node.js packages.
+4. Run `gulp`. This will copy all the files to where they need to go and start the web server.
+5. Navigate to [http://localhost:8000/](http://localhost:8000/) in a browser.
