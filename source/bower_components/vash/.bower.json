@@ -1,0 +1,15 @@
+{
+  "name": "vash",
+  "homepage": "https://github.com/kirbysayshi/vash",
+  "version": "0.9.3",
+  "_release": "0.9.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.9.3",
+    "commit": "f18395b6fdbe6da1269880f70fb59e0a6a427811"
+  },
+  "_source": "git://github.com/kirbysayshi/vash.git",
+  "_target": "~0.9.3",
+  "_originalSource": "vash",
+  "_direct": true
+}

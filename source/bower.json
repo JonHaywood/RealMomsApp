@@ -1,0 +1,28 @@
+{
+  "name": "source",
+  "version": "0.0.0",
+  "authors": [
+    "jonathan.haywood@gmail.com <jonathan.haywood@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "requirejs": "~2.1.19",
+    "underscore": "~1.8.3",
+    "backbone": "~1.2.1",
+    "vash": "~0.9.3",
+    "requirejs-text": "~2.0.14",
+    "sweetalert": "~1.0.1",
+    "jquery-validation": "~1.14.0",
+    "bootstrap-table": "~1.8.1",
+    "moment": "~2.10.3",
+    "x-editable": "~1.5.1"
+  }
+}
