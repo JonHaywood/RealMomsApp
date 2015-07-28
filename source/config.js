@@ -4,7 +4,7 @@ var config = {};
 config.databaseConnectionString = process.env.DB || 'mongodb://localhost/realMomsAPI';
 
 // application settings
-config.port = process.env.PORT || 8000;
+config.defaultPort = 8000;
 config.ratePerChild = 2;
 config.maxPerFamily = 5;
 
