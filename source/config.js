@@ -5,7 +5,7 @@ config.databaseConnectionString = process.env.DB || 'mongodb://localhost/realMom
 
 // application settings
 config.env = process.env.NODE_ENV || 'development';
-config.port = process.env.PORT;
+config.port = process.env.PORT || 8080;
 config.ratePerChild = 2;
 config.maxPerFamily = 5;
 
