@@ -1,0 +1,32 @@
+#loading { width: 100%; height: 100%; display: none;}
+.jumbotron {
+  background: url('../img/icon.png') center center #CC6D9F no-repeat;
+  background-size: 25%;
+  padding-top: 120px;
+  padding-bottom: 150px;
+  border-radius: 0;
+  text-align: center;
+  color: #F0C7DD;
+  font-size: 175%;
+  position: relative;
+}
+.jumbotron h1 {
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+  font-size: 60px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+}
+.jumbotron a.btn { background-color: #E099BE; border-color: #AD447B;}
+.jumbotron a.btn:hover { background-color: #90265E; }
+
+.masthead { position: relative; margin-bottom: 40px; padding: 20px 0; color: #F0C7DD; text-shadow: 0 1px 0 rgba(0,0,0,.1);background: url('../img/icon.png') 18% center #CC6D9F no-repeat;background-size: 10%;font-weight: 300;
+ line-height: 1.4; font-size: 24px;}
+.masthead h1 { color: #fff;  font-size: 60px; line-height: 1;}
+.checkin-header { margin-bottom: 0;}
+.checkin-complete {  font-size: 18px; }
+.checkbox input[type=checkbox] { position: relative !important; box-shadow: none; width: 72px;  height: 32px; }
+.form-group-lg .form-control-static { margin-top: 3px; padding-left: 0; }
+#checkinData { width: 100%;}
+#recordsToolbar { margin-top: -1px; }

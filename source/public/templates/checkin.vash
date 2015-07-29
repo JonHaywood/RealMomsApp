@@ -1,0 +1,223 @@
+<div class="container-fluid">
+
+  <nav class="navbar navbar-default checkin-header">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Real Moms</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li class="active"><a href="#checkin">Checkin</a></li>
+          <li><a href="#admin">Admin</a></li>
+          <li><a href="http://mvcchurch.ccbchurch.com" target="_blank">CCB</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </nav>
+
+  <!-- Main component for a primary marketing message or call to action -->
+  <div class="masthead">
+  	<div class="container">
+    	<h1>Real Moms Checkin</h1>
+    	<p>Use the form below to checkin families.</p>
+    </div>
+  </div>
+
+  <div id="checkin-steps" class="container">
+  	<!-- Step 1 -->
+  	<div id="step1" class="panel panel-default">
+  		<form class="form-horizontal">
+		  	<div class="panel-heading">
+		  		<h3>Enter mom's information and children</h3>
+		  	</div>
+		  	<div class="panel-body">
+		  		<div class="form-group form-group-lg">
+		  			<label for="firstName" class="col-sm-2 control-label">First Name:</label>
+		  			<div class="col-sm-3">
+		  				<input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+		  			</div>
+		  		</div>
+		  		<div class="form-group form-group-lg">
+		  			<label for="lastName" class="col-sm-2 control-label">Last Name:</label>
+		  			<div class="col-sm-3">
+		  				<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+		  			</div>
+		  		</div>
+		  		<div class="form-group form-group-lg">
+		  			<label for="numberOfChildren" class="col-sm-2 control-label">Number of Children:</label>
+		  			<div class="col-sm-2">
+		  				<input type="number" class="form-control" id="numberOfChildren" name="numberOfChildren" placeholder="Number of Children" value="1" required>
+		  			</div>
+		  		</div>
+		  		<div class="form-group form-group-lg">
+		  			<label for="amountPaid" class="col-sm-2 control-label">Amount Paid:</label>
+		  			<div class="col-sm-2">
+		  				<div class="input-group">
+		  					<span class="input-group-addon">$</span>
+		  					<input id="amountPaid" name="amountPaid" type="number" class="form-control" aria-label="Amount (to the nearest dollar)" value="0" required>
+		  					<span class="input-group-addon">.00</span>
+		  				</div>
+		  			</div>
+		  		</div>
+		  		<div class="form-group form-group-lg">
+		  			<label for="momPresent" class="col-sm-2 control-label">Is Mom Present:</label>
+		  			<div class="col-sm-2">
+		  				<div class="checkbox">
+		  					<input type="checkbox" class="form-control" id="momPresent" name="momPresent" checked="checked">
+		  				</div>
+		  			</div>
+		  		</div>
+		  		<div class="form-group form-group-lg">
+		  			<label class="col-sm-2 control-label">Checkin Date:</label>
+				    <div id="dateLink" class="col-sm-10">
+				    	<p class="form-control-static">
+				    		Today<br />
+				    		<small><a href="">Click here to checkin for a date other than today.</a></small>
+				    	</p>
+				    </div>
+				    <div id="dateDiv" class="col-sm-3" style="display: none">
+		  				<input type="date" class="form-control" id="date" name="date" required>
+		  			</div>
+		  		</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<button type="button" class="btn btn-default btn-lg prev">Cancel</button>
+					<input type="submit" class="btn btn-primary btn-lg next" value="Next &raquo;">
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</form>
+	</div>
+
+  	<!-- Step 2 -->
+  	<div id="step2" class="panel panel-default" style="display: none">
+  		<form class="form-horizontal">
+		  	<div class="panel-heading">
+		  		<h3>Extra Information</h3>
+		  		<h3><span class="label label-info">This seems to be a new person who isn't in the system already.</span></h3>
+		  		<p>If this true then enter extra information below. Otherwise go back and enter a different name.</p>
+		  	</div>
+		  	<div class="panel-body">
+		  		<div class="form-group form-group-lg">
+		  			<label for="birthday" class="col-sm-2 control-label">Birthday:</label>
+		  			<div class="col-sm-3">
+		  				<input type="date" class="form-control" id="birthday" name="birthday" placeholder="Birthday" required>
+		  			</div>
+		  		</div>
+		  		<div class="form-group form-group-lg">
+		  			<label for="startingBalance" class="col-sm-2 control-label">Starting Balance:</label>
+		  			<div class="col-sm-2">
+		  				<div class="input-group">
+		  					<span class="input-group-addon">$</span>
+		  					<input id="startingBalance" name="startingBalance" type="number" class="form-control" aria-label="Starting Balance (to the nearest dollar)" value="0" required>
+		  					<span class="input-group-addon">.00</span>
+		  				</div>
+		  			</div>
+		  		</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<button type="button" class="btn btn-default btn-lg prev" data-show="#step1" data-hide="#step2">&laquo; Go Back</button>
+					<input type="submit" class="btn btn-primary btn-lg next" value="Next &raquo;">
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</form>
+  	</div>
+
+  	<!-- Step 3 -->
+  	<div id="step3" class="panel panel-default" style="display: none">
+	  	<div class="panel-heading">
+	  		<h3>Confirm Checkin</h3>
+	  		<p>Check that the following information is correct.</p>
+	  	</div>
+	  	<div class="panel-body">
+		  	<form class="form-horizontal">
+		  		<div class="form-group form-group-lg">
+		  			<label for="firstNameDisplay" class="col-sm-2 control-label">First Name:</label>
+		  			<div class="col-sm-3">
+		  				<p class="form-control-static" id="firstNameDisplay"></p>
+		  			</div>
+		  		</div>
+		  		<div class="form-group form-group-lg">
+		  			<label for="lastNameDisplay" class="col-sm-2 control-label">Last Name:</label>
+		  			<div class="col-sm-3">
+		  				<p class="form-control-static" id="lastNameDisplay"></p>
+		  			</div>
+		  		</div>
+		  		<div class="form-group form-group-lg">
+		  			<label for="numberOfChildrenDisplay" class="col-sm-2 control-label">Number of Children:</label>
+		  			<div class="col-sm-2">
+		  				<p class="form-control-static" id="numberOfChildrenDisplay"></p>
+		  			</div>
+		  		</div>
+		  		<div class="form-group form-group-lg">
+		  			<label for="amountPaidDisplay" class="col-sm-2 control-label">Amount Paid:</label>
+		  			<div class="col-sm-2">
+		  				<p class="form-control-static" id="amountPaidDisplay"></p>
+		  			</div>
+		  		</div>
+		  		<div class="form-group form-group-lg">
+		  			<label for="amountPaidDisplay" class="col-sm-2 control-label">Is Mom Present:</label>
+		  			<div class="col-sm-2">
+		  				<p class="form-control-static" id="momPresentDisplay"></p>
+		  			</div>
+		  		</div>
+		  		<div class="form-group form-group-lg">
+		  			<label for="dateDisplay" class="col-sm-2 control-label">Checkin Date:</label>
+		  			<div class="col-sm-2">
+		  				<p class="form-control-static" id="dateDisplay"></p>
+		  			</div>
+		  		</div>
+
+		  		<div id="isNewDisplay" style="display: none">
+		  			<div class="form-group form-group-lg">
+			  			<label for="birthdayDisplay" class="col-sm-2 control-label">Birthday:</label>
+			  			<div class="col-sm-2">
+			  				<p class="form-control-static" id="birthdayDisplay"></p>
+			  			</div>
+			  		</div>
+			  		<div class="form-group form-group-lg">
+			  			<label for="startingBalanceDisplay" class="col-sm-2 control-label">Starting Balance:</label>
+			  			<div class="col-sm-2">
+			  				<p class="form-control-static" id="startingBalanceDisplay"></p>
+			  			</div>
+			  		</div>
+		  		</div>
+		  	</form>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<button type="button" class="btn btn-default btn-lg prev">&laquo; Go Back</button>
+				<button type="button" class="btn btn-primary btn-lg next" id="submitCheckin">Submit Checkin</button>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+  	</div>
+
+  	<!-- Last step -->
+  	<div id="step4" class="panel panel-success" style="display: none">
+	  	<div class="panel-heading">
+	  		<h3>Success!</h3>
+	  	</div>
+	  	<div class="panel-body">
+		  	<p class="checkin-complete"><span class="glyphicon glyphicon-ok"></span> Checkin is complete.</p>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<button type="button" class="btn btn-primary btn-lg">Restart Form</button>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+  	</div>
+  </div>
+
+</div> <!-- /container -->
