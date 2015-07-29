@@ -34,6 +34,16 @@ define([
 		});
 	};
 
+	var deleteMom = function (record) {
+		return $.ajax({
+		    url: 'api/moms/' + record._id,
+		    type: 'DELETE',
+		    contentType: 'application/json'
+		}).fail(function () {
+			swal('Ooops...', 'Something went wrong when deleting this record. Please reload the page.');
+		});
+	};
+
 	var getRowData = function (el) {
 		var index = $(el).closest('tr').index();
 		return $table.bootstrapTable('getData')[index];
@@ -92,6 +102,13 @@ define([
 		    	formatter: function (val, row, index) {
 		    		return '<button type="button" class="btn btn-primary btn-xs view-payments" data-toggle="modal" data-target="#paymentModal">View</button>';
 		    	}
+		    }, {
+		    	field: '_id',
+		    	title: '',
+		    	align: 'center',
+		    	formatter: function (val, row, index) {
+					return '<button type="button" class="btn btn-default btn-xs mom-delete" data-id="'+val+'"><span class="glyphicon glyphicon-remove"></span></button>';
+				}
 		    }],
 		    url: 'api/moms',
 		    queryParams: function (params) {
@@ -274,10 +291,37 @@ define([
 		});
 	};
 
+	var showDeleteMom = function (e) {
+		e.preventDefault();
+		var id = $(this).attr('data-id');
+		swal({
+			title: 'Are you sure?',
+			text: 'This will delete this person. You will not be able recover this record later.',
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Yes, delete it",
+			closeOnConfirm: false
+		}, function () {
+			swal({
+				title: 'Are you really sure?',
+				type: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: "#DD6B55",
+				confirmButtonText: "Yes, I'm sure, delete it"
+			}, function () {
+				deleteMom({ _id: id }).done(function (result) {
+					$table.bootstrapTable('refresh'); // reload the main grid
+				});
+			});
+		});
+	};
+
 	var initialize = function () {
 		$table = initializeTable();
 		$table.on('click', '.view-checkins', showCheckins);
 		$table.on('click', '.view-payments', showOtherPayments);
+		$table.on('click', '.mom-delete', showDeleteMom);
 
 		// Set up form validation using the validator plugin. Code below will
 		// override jquery validate plugin defaults so that it works
