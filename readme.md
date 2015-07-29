@@ -32,3 +32,6 @@ Make sure that Node.js and Mongo DB are installed. Use the default settings for 
 3. Run `npm install -l` from the command line to install all needed Node.js packages.
 4. Run `gulp`. This will copy all the files to where they need to go and start the web server.
 5. Navigate to [http://localhost:8000/](http://localhost:8000/) in a browser.
+
+##How to Deploy
+See the [Deployment](docs/deploy.md) documentation on how to push source up to Heroku.
