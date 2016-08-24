@@ -18,6 +18,7 @@ require.config({
         'bootstrap-table': '../dist/bootstrap-table/dist/bootstrap-table.min',
         'bootstrap-table-editable': '../dist/bootstrap-table/dist/extensions/editable/bootstrap-table-editable.min',
         'bootstrap-editable': '../dist/x-editable/dist/bootstrap3-editable/js/bootstrap-editable',
+        'bootstrap-typeahead': '../dist/bootstrap3-typeahead/bootstrap3-typeahead.min',
         'moment': '../dist/moment/min/moment.min'
     },
     // shims let us load non-AMD formatted js files in require js
@@ -27,7 +28,8 @@ require.config({
         'validation': ['jquery'],
         'bootstrap-table': ['jquery', 'bootstrap'],
         'bootstrap-editable': ['jquery', 'bootstrap'],
-        'bootstrap-table-editable': ['bootstrap-table', 'bootstrap-editable']
+        'bootstrap-table-editable': ['bootstrap-table', 'bootstrap-editable'],
+        'bootstrap-typeahead': ['jquery', 'bootstrap']
     }
 });
 

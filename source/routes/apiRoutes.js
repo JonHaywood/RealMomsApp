@@ -13,8 +13,8 @@ var routes = function() {
 			// if 'find' is present then do a 'starts with' search
 			if  (query.find) {
 				Mom.find({ $or: [
-					{ 'firstName': new RegExp('^'+query.firstName, "i") },
-					{ 'lastName': new RegExp('^'+query.lastName, "i") }
+					{ 'firstName': new RegExp('^'+query.find, "i") },
+					{ 'lastName': new RegExp('^'+query.find, "i") }
 				] }, function (err, moms) {
 					if (err)
 						response.status(500).send(err);

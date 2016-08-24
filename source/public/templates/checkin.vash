@@ -41,13 +41,13 @@
 		  		<div class="form-group form-group-lg">
 		  			<label for="firstName" class="col-sm-2 control-label">First Name:</label>
 		  			<div class="col-sm-3">
-		  				<input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+		  				<input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" autocomplete="off" required>
 		  			</div>
 		  		</div>
 		  		<div class="form-group form-group-lg">
 		  			<label for="lastName" class="col-sm-2 control-label">Last Name:</label>
 		  			<div class="col-sm-3">
-		  				<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+		  				<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" autocomplete="off" required>
 		  			</div>
 		  		</div>
 		  		<div class="form-group form-group-lg">
@@ -140,6 +140,9 @@
 	  		<p>Check that the following information is correct.</p>
 	  	</div>
 	  	<div class="panel-body">
+	  		<div id="hasNotPrepaid" style="display: none">
+		  		<h4><div class="alert alert-warning" role="alert"><strong>Note!</strong> This person has not pre-paid and will have a negative balance after checking in.</div></h4>
+		  	</div>
 		  	<form class="form-horizontal">
 		  		<div class="form-group form-group-lg">
 		  			<label for="firstNameDisplay" class="col-sm-2 control-label">First Name:</label>

@@ -3,7 +3,8 @@ define([
     'underscore',
     'ui',
     'moment',
-    'validation'
+    'validation',
+    'bootstrap-typeahead'
 ], function ($, _, ui, moment) {
 
 	var mapping = {
@@ -19,6 +20,7 @@ define([
 		startingBalance: '#startingBalance'
 	};
 	var isNew = false;
+	var currentBalance = 0;
 	var existingMom;
 
 	var extractInput = function () {
@@ -73,6 +75,7 @@ define([
 			if (results.length > 0) {
 				isNew = false;
 				existingMom = results[0];
+				currentBalance = existingMom.currentBalance;
 				var date = $(mapping.date).val();
 
 				// see if there were any other checkins from today for this mom
@@ -130,10 +133,17 @@ define([
 		console.log('Loading step 3.');
 		var input = extractInput();
 		setDisplayData(input.data, input.extraData);
+
 		if (isNew)
 			$('#isNewDisplay').show();
 		else
 			$('#isNewDisplay').hide();
+
+		if (currentBalance <= 0 && input.data.amountPaid <= 0 && input.data.numberOfChildren > 0)
+			$('#hasNotPrepaid').show();
+		else
+			$('#hasNotPrepaid').hide();
+
 		$('#step3').fadeIn();
 	};
 
@@ -220,10 +230,12 @@ define([
 		$(extraMapping.startingBalance).val('0');
 
 		isNew = false;
+		currentBalance = 0;
 
 		$('#checkin-steps > div').hide().first().show(); // only show 1st step
 		$('#dateDiv').hide();
 		$('#dateLink').show();
+		$('#hasNotPrepaid').hide();
 	};
 
 	var onShowCheckinDate = function (e) {
@@ -253,6 +265,26 @@ define([
 		            error.insertAfter(element);
 		        }
 		    }
+		});
+
+		// set up type ahead
+		$(mapping.firstName+','+mapping.lastName).typeahead({
+			hint: true,
+			highlight: true,
+			minLength: 1,
+			fitToElement: true,
+			source: function (query, process) {
+				return  $.get('/api/moms?find=' + query, function (data) {
+					return process(data);
+				});
+			},
+			displayText: function (item) {
+				return item.firstName + ' ' + item.lastName;
+			},
+			afterSelect: function (item) {
+				$(mapping.firstName).val(item.firstName);
+				$(mapping.lastName).val(item.lastName);
+			}
 		});
 
 		// set default date of today for checkins
