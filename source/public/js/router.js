@@ -19,6 +19,7 @@ define([
             // Define URL routes
             'checkin': 'showCheckin',
             'admin': 'showAdmin',
+            'reports': 'showReports',
 
             // Default URL route
             '*actions': 'defaultAction'
@@ -32,6 +33,12 @@ define([
 
         showAdmin: function () {
             requirejs(['controllers/admin', 'text!../templates/admin.vash'], function(controller, tpl) {
+                controller.run(tpl);
+            });
+        },
+
+        showReports: function () {
+            requirejs(['controllers/reports', 'text!../templates/reports.vash'], function(controller, tpl) {
                 controller.run(tpl);
             });
         },

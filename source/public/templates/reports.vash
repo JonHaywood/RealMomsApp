@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default checkin-header">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -13,10 +13,10 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Home</a></li>
           <li><a href="#checkin">Checkin</a></li>
           <li><a href="#admin">Admin</a></li>
-          <li><a href="#reports">Reports</a></li>
+          <li class="active"><a href="#reports">Reports</a></li>
           <li><a href="http://mvcchurch.ccbchurch.com" target="_blank">CCB</a></li>
         </ul>
       </div><!--/.nav-collapse -->
@@ -24,12 +24,31 @@
   </nav>
 
   <!-- Main component for a primary marketing message or call to action -->
-  <div class="jumbotron">
-    <h1>Real Moms App</h1>
-    <p>Use this site to manage procedures and data for the Real Moms ministry.</p>
-    <p>
-      <a class="btn btn-lg btn-primary" href="#checkin" role="button">Start Checkin &raquo;</a>
-    </p>
+  <div class="masthead">
+  	<div class="container">
+    	<h1>Real Moms Admin</h1>
+    	<p>Attendance reports.</p>
+    </div>
   </div>
 
+  <div id="row">
+    <form class="form-inline pull-right">
+      <div class="form-group">
+        <label>From</label>
+        <input type="date" name="fromDate" class="form-control" placeholder="Start Date">
+      </div>
+      <div class="form-group">
+        <label>To</label>
+        <input type="date" name="toDate" class="form-control" placeholder="End Date">
+      </div>
+      <button type="submit" class="btn btn-primary">Apply</button>
+    </form>
+    <br />
+    <br />    
+  	<table id="records" data-toolbar="#recordsToolbar" data-toolbar-align="right" class="table table-bordered table-hover">
+     <tr><td class="text-center">Loading...</td></tr> 
+    </table>
+  </div>
+
+  
 </div> <!-- /container -->

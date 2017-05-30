@@ -50,6 +50,37 @@ var routes = function() {
 			mom.save();
 			response.status(201).send(mom);
 		});
+	router.route('/moms/reports')
+		.get(function (request, response) {
+			var query = request.query;
+			var from = query.from;
+			var to = query.to;
+
+			from = (from) ? new Date(from) : new Date(new Date().setFullYear(new Date().getFullYear() - 1));
+			to = (to) ? new Date(to) : new Date();
+
+			Mom.find({ 'checkins.date': {
+				$gt: from,
+				$lt: to
+			}}, function (err, moms) {
+				if (err){
+					response.status(500).send(err);
+					return;
+				}
+					
+				var dates = [];
+				var projection = _.map(moms, function (mom) {
+					mom.checkins = _.filter(mom.checkins, function (checkin) { return checkin.date > from && checkin.date < to; });
+					dates.push(_.pluck(mom.checkins, 'date'));
+					return mom;
+				});
+				var uniqueDates = _.uniq(_.flatten(dates), function (item) {return item.getTime(); });
+				response.json({
+					uniqueDates: uniqueDates,
+					moms: projection
+				});
+			});
+		});
 	router.route('/moms/:id')
 		.get(function (request, response) {
 			Mom.findById(request.params.id, function (err, mom) {
