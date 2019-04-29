@@ -37,7 +37,8 @@ define([
 			$table.empty();
 
 			var uniqueDates = data.uniqueDates.sort();
-			var uniqueDatesTotals = _.range(0, uniqueDates.length, 0); // array of zeros
+			var uniqueDatesTotals = []; // array of zeros
+			_.times(uniqueDates.length, function () { uniqueDatesTotals.push(0); });
 			var sortedMoms = data.moms.sort(function (a, b) {
 				if(a.lastName < b.lastName) return -1;
 			    if(a.lastName > b.lastName) return 1;
@@ -63,7 +64,7 @@ define([
 
 				_.each(uniqueDates, function (date, i) {
 					var inAttendance =_.some(mom.checkins, function (checkin) { 
-						var isSameDate = moment(checkin.date).isSame(date);
+						var isSameDate = moment(checkin.date).isSame(date, 'day');
 						var isPresent = checkin.momPresent === true; 
 						return isSameDate && isPresent;
 					});

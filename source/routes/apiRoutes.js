@@ -1,5 +1,6 @@
 var express = require('express');
 var _ = require('underscore');
+var moment = require("moment");
 var Mom = require('../models/momModel');
 var router = express.Router();
 var config = require('../config');
@@ -75,6 +76,9 @@ var routes = function() {
 					return mom;
 				});
 				var uniqueDates = _.uniq(_.flatten(dates), function (item) {return item.getTime(); });
+				uniqueDates = _.sortBy(uniqueDates, function (item) { return item.getTime(); });
+				uniqueDates = _.map(uniqueDates, function (item) { return moment(item).format("YYYY-MM-DD"); });
+
 				response.json({
 					uniqueDates: uniqueDates,
 					moms: projection
@@ -109,6 +113,7 @@ var routes = function() {
 	router.route('/moms/:id/checkin')
 		.post(function (request, response) {
 			var newCheckin = request.body;
+			newCheckin.date = moment(newCheckin.date).toDate();
 			newCheckin.amountOwed = Math.min(config.ratePerChild * newCheckin.numberOfChildren, config.maxPerFamily);
 			Mom.findByIdAndUpdate(request.params.id, { $push: { checkins: newCheckin } }, { new: true }, function (err, mom) {
 				if (err)
