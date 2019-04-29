@@ -80,7 +80,7 @@ define([
 
 				// see if there were any other checkins from today for this mom
 				var checkinForSameDay = _.find(existingMom.checkins, function (checkin) {
-					return new Date(checkin.date).setHours(0,0,0,0) === new Date(date).setHours(0,0,0,0);
+					return moment(checkin.date, "YYYY-MM-DD").isSame(date, "day");
 				});
 				if (checkinForSameDay) {
 					var dayStr = moment().diff(moment(checkinForSameDay.date), 'days') == 0 ? 'today' : 'on ' + moment(checkinForSameDay.date).format('MM/DD/YYYY');

@@ -64,7 +64,7 @@ define([
 
 				_.each(uniqueDates, function (date, i) {
 					var inAttendance =_.some(mom.checkins, function (checkin) { 
-						var isSameDate = moment(checkin.date).isSame(date, 'day');
+						var isSameDate = moment(checkin.date, "YYYY-MM-DD").isSame(date, 'day');
 						var isPresent = checkin.momPresent === true; 
 						return isSameDate && isPresent;
 					});
