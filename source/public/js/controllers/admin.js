@@ -79,14 +79,14 @@ define([
 		    		mode: 'inline',
 		    		success: _.partial(updateRowValue, 'startingBalance'),
 		    		display: function(val) {
-				      $(this).text((val >= 0) ? '$' + val : '-$' + (val * -1));
+				      $(this).text((val >= 0) ? '$' + val.toFixed(2) : '-$' + (val * -1).toFixed(2));
 				    }
 				}
 		    }, {
 		    	field: 'currentBalance',
 		    	title: 'Current Balance',
 		    	formatter: function (val, row, index) {
-		    		return (val >= 0) ? '$' + val : '-$' + (val * -1);
+		    		return (val >= 0) ? '$' + val.toFixed(2) : '-$' + (val * -1).toFixed(2);
 		    	}
 		    }, {
 		    	field: 'checkins',
@@ -136,7 +136,7 @@ define([
 			columns: [{
 				field: 'amountPaid',
 				title: 'Amount Paid',
-				formatter: function (val, row, index) {	return  '$'+val; }
+				formatter: function (val, row, index) {	return  '$'+val.toFixed(2); }
 			}, {
 				field: 'date',
 				title: 'Date',
@@ -155,7 +155,7 @@ define([
 			}, {
 				field: 'amountOwed',
 				title: 'Amount Owed',
-				formatter: function (val, row, index) {	return  '$'+val; },
+				formatter: function (val, row, index) {	return  '$'+val.toFixed(2); },
 				visible: false
 			}, {
 				field: '_id',
@@ -204,7 +204,7 @@ define([
 			columns: [{
 				field: 'amountPaid',
 				title: 'Amount Paid',
-				formatter: function (val, row, index) {	return  '$'+val; }
+				formatter: function (val, row, index) {	return  '$'+val.toFixed(2); }
 			}, {
 				field: 'date',
 				title: 'Date',
