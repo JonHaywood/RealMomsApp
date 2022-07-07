@@ -23,7 +23,7 @@
     "gulp-nodemon": "^2.0.3",
     "gulp-rm": "^1.0.0",
     "main-bower-files": "^2.9.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mongoose": "^4.0.7",
     "underscore": "^1.8.3",
     "vash": "^0.9.3"
