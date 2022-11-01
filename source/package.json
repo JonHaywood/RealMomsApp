@@ -17,7 +17,7 @@
     "body-parser": "^1.13.2",
     "bower": "^1.4.1",
     "express": "^4.13.1",
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-bower-files": "^0.2.7",
     "gulp-filter": "^2.0.2",
     "gulp-nodemon": "^2.0.3",
