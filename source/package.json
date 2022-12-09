@@ -16,7 +16,7 @@
   "dependencies": {
     "body-parser": "^1.13.2",
     "bower": "^1.4.1",
-    "express": "^4.13.1",
+    "express": "^4.17.3",
     "gulp": "^3.9.0",
     "gulp-bower-files": "^0.2.7",
     "gulp-filter": "^2.0.2",
